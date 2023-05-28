@@ -1,0 +1,21 @@
+import requests
+import pprint
+import pandas as pd
+
+# cabeçalho da solicitação
+token = FAXWtM9ahonIYBDbOtDEIrS28SIVE1eg
+headers["Authorization"] = "Bearer {token}"
+headers["Accept"] = "application/json"
+link = 'https://nbi:9999/osm/admin/v1/vims'
+
+requisicao = requests.get(link, headers=headers)
+print(requisicao)
+dic_requisicao = requisicao.json()
+pprint.pprint(dic_requisicao)
+
+#setando os parametros a serem exibidos
+
+vim_name = dic_requisicao['name']
+vim_type = dic_requisicao['vim_type']
+
+print(vim_name, vim_type)
